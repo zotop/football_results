@@ -26,7 +26,8 @@ defmodule Database.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [{:postgrex, ">= 0.11.1"},
-     {:ecto, "~> 2.0"}
-    ] 
+     {:ecto, "~> 2.0"},
+     {:csv, "~> 2.0.0"}
+    ]
   end
 end
