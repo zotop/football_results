@@ -28,6 +28,7 @@ defmodule Api.MixProject do
   defp deps do
     [{:cowboy, "~> 1.0.0"},
      {:plug, "~> 1.5.0"},
+     {:poison, "~> 3.1"},
      {:espec, "~> 1.5.0", only: :test},
      {:database, in_umbrella: true}
     ]
