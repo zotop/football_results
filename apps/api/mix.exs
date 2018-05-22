@@ -19,7 +19,7 @@ defmodule Api.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :cowboy, :plug],
+      extra_applications: [:logger, :cowboy, :plug, :exprotobuf],
       mod: {Api.Application, []}
     ]
   end
@@ -29,6 +29,7 @@ defmodule Api.MixProject do
     [{:cowboy, "~> 1.0.0"},
      {:plug, "~> 1.5.0"},
      {:poison, "~> 3.1"},
+     {:exprotobuf, "~> 1.2.9"},
      {:espec, "~> 1.5.0", only: :test},
      {:database, in_umbrella: true}
     ]
