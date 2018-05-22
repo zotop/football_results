@@ -1,6 +1,7 @@
 defmodule Database.Result do
   use Ecto.Schema
-  import Ecto.Changeset
+
+  @derive {Poison.Encoder, except: [:__meta__, :__struct__]}
 
   @primary_key {:id, :binary_id, autogenerate: true}
   schema "result" do

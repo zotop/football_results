@@ -10,6 +10,13 @@ defmodule Api do
     send_resp(conn, 200, Poison.encode!(pairs))
   end
 
+  get "/api/results" do
+    conn = fetch_query_params(conn)
+    %{"division" => division, "season" => season} = conn.params
+    results = Database.list_results(division: division, season: season)
+    send_resp(conn, 200, Poison.encode!(results))
+  end
+
   match _ do
     send_resp(conn, 404, "")
   end

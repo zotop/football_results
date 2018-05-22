@@ -1,9 +1,9 @@
 ESpec.configure fn(config) ->
-  config.before fn(tags) ->
-    {:shared, hello: :world, tags: tags}
+  config.before fn() ->
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(FootballResults.Repo)
   end
 
   config.finally fn(_shared) ->
-    :ok
+    Ecto.Adapters.SQL.Sandbox.checkin(FootballResults.Repo, [])
   end
 end

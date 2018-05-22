@@ -3,7 +3,7 @@ defmodule ApiSpec do
   use Plug.Test
 
   @opts Api.init([])
-  
+
   context "when listing in JSON" do
 
     let division_1_2015_2016_barcelona: %{division: "SP1", season: "201516", home_team: "Barcelona"}
@@ -27,6 +27,24 @@ defmodule ApiSpec do
         expect(length(pairs)).to eq(2)
         expect(divisions).to contain_exactly(["SP1", "SP1"])
         expect(seasons).to contain_exactly(["201617", "201516"])
+      end
+
+    end
+
+    context "results for a specific division and season pair" do
+
+      it "should return the correct results" do
+        conn = conn(:get, "/api/results?division=SP1&season=201516")
+        |> Api.call(@opts)
+        results = Poison.decode!(conn.resp_body)
+        divisions = Enum.map(results, fn result -> result["division"] end)
+        seasons = Enum.map(results, fn result -> result["season"] end)
+        home_teams = Enum.map(results, fn result -> result["home_team"] end)
+
+        expect(length(results)).to be(2)
+        expect(divisions).to contain_exactly(["SP1", "SP1"])
+        expect(seasons).to contain_exactly(["201516", "201516"])
+        expect(home_teams).to contain_exactly(["Valladolid", "Barcelona"])
       end
 
     end

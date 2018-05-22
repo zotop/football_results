@@ -29,6 +29,7 @@ defmodule Database.MixProject do
     [{:postgrex, ">= 0.11.1"},
      {:ecto, "~> 2.0"},
      {:csv, "~> 2.0.0"},
+     {:poison, "~> 3.1"},
      {:espec, "~> 1.5.0", only: :test}
     ]
   end
