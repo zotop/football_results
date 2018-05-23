@@ -18,7 +18,7 @@ map_result = fn (row) ->
 end
 
 IO.puts "Starting to seed the football results..."
-rows = File.stream!(Path.expand("./priv/repo/seeds/data.csv"))
+rows = File.stream!(Path.expand("apps/database/priv/repo/seeds/data.csv"))
 |> Stream.drop(1)
 |> CSV.decode(headers: ["", :division, :season, :date, :home_team, :away_team,
                         :fthg, :ftag, :ftr, :hthg, :htag, :htr])

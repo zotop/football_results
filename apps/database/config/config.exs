@@ -5,9 +5,9 @@ config :database, ecto_repos: [FootballResults.Repo]
 config :database, FootballResults.Repo,
         adapter: Ecto.Adapters.Postgres,
         database: "football_results_repo",
-        username: "admin",
-        password: "",
-        hostname: "localhost"
+        username: System.get_env("DB_USER"),
+        password: System.get_env("DB_PASSWORD"),
+        hostname: System.get_env("DB_HOSTNAME")
 
 config :logger,
         level: :info
