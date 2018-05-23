@@ -6,9 +6,12 @@ defmodule ApiSpec do
 
   context "when listing" do
 
-    let division_1_2015_2016_barcelona: %{division: "SP1", season: "201516", home_team: "Barcelona"}
-    let division_1_2015_2016_valladolid: %{division: "SP1", season: "201516", home_team: "Valladolid"}
-    let division_1_2016_2017_barcelona: %{division: "SP1", season: "201617", home_team: "Granada"}
+    let division_1_2015_2016_barcelona: %{division: "SP1", season: "201516",
+                                          home_team: "Barcelona", date: Ecto.Date.cast!("2016-01-01")}
+    let division_1_2015_2016_valladolid: %{division: "SP1", season: "201516",
+                                          home_team: "Valladolid", date: Ecto.Date.cast!("2016-01-01")}
+    let division_1_2016_2017_barcelona: %{division: "SP1", season: "201617",
+                                          home_team: "Granada", date: Ecto.Date.cast!("2017-01-01")}
     let results: [division_1_2015_2016_barcelona(),
                   division_1_2015_2016_valladolid(),
                   division_1_2016_2017_barcelona()]

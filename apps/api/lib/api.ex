@@ -20,7 +20,8 @@ defmodule Api do
     [accept_header] = Plug.Conn.get_req_header(conn, "accept")
     if accept_header == "application/octet-stream" do
       results = Enum.map(results, fn result -> Map.from_struct(result) |> Enum.filter(fn {_, v} -> v != nil end) end)
-      results = Enum.map(results, fn result -> Protobufs.Result.new(result) end)
+      results = Enum.map(results, fn result -> Map.new(result) |> Map.put(:date, Date.to_string(result[:date])) end)
+      results = Enum.map(results, fn result -> Protobufs.Result.new(result)  end)
       results = Protobufs.Results.new(results: results)
       encoded_results = Protobufs.Results.encode(results)
       send_resp(conn, 200, encoded_results)
