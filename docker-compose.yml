@@ -1,10 +1,21 @@
-version: '3'
+version: '2'
 services:
+
+    haproxy:
+      image: 'dockercloud/haproxy:latest'
+      links:
+        - app
+      ports:
+        - 80:80
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+      environment:
+        - EXTRA_GLOBAL_SETTINGS=debug  
 
     postgres:
       image: postgres
       ports:
-        - "5432:5432"
+        - 5432:5432
       environment:
         - POSTGRES_USER=admin
         - POSTGRES_PASSWORD=password
@@ -12,7 +23,7 @@ services:
     app:
       build: .
       ports:
-        - "4001:4001"
+        - 4001
       environment:
         - DB_USER=admin
         - DB_PASSWORD=password
