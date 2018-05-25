@@ -1,21 +1,26 @@
 # Api
 
-**TODO: Add description**
+Application responsible for serving the HTTP API.
 
-## Installation
+## Endpoints
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `api` to your list of dependencies in `mix.exs`:
+* GET `/api/divisions_by_season`: retrieval of all divisions + season pairs. Response is encoded in JSON.
+* GET `/api/results`: retrieval of all results for the given division and season query parameters.
+If Accept request header is equal to `application/octet-stream`, then
+will respond with encoded protobuf message, otherwise the response will
+be JSON encoded.
 
-```elixir
-def deps do
-  [
-    {:api, "~> 0.1.0"}
-  ]
-end
-```
+## Protobuf
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/api](https://hexdocs.pm/api).
+Using [Exprotobuf](https://github.com/bitwalker/exprotobuf) for protobuf schemas definitions
+and encoding/decoding of messages.
 
+See `lib/proto/results.proto` for the schema definition of a football results message.
+
+## Testing
+
+Tests can be run with [espec](https://github.com/antonmi/espec)
+via the command `mix espec`.
+
+Note: Check and update accordingly `apps/database/config/test.exs`
+for your test repository settings.
