@@ -1,4 +1,23 @@
 defmodule Api do
+  @moduledoc """
+  API endpoints definitions
+
+  ## /api/divisions_by_season
+     Retrieval of all divisions + season pairs.
+     Response is encoded in JSON.
+
+  ## /api/results
+     Retrieval of all results for the given division and season query parameters.
+
+     If Accept request header is equal to "application/octet-stream", then
+     will respond with encoded protobuf message, otherwise the response will
+     be JSON encoded.
+
+  ## Example
+
+    /api/results?division=SP1&season=201516
+
+  """
   use Plug.Router
   import Plug.Conn
   require Database
