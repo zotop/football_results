@@ -17,6 +17,8 @@ and using [Cowboy](https://github.com/ninenines/cowboy) webserver.
   docker-compose scale app=3
 ```
 
+You can now test the HTTP Api; see api application's [README](https://github.com/zotop/football_results/tree/master/apps/api#endpoints)
+
 ## Docker Compose Configuration
 
 There are 3 services available:
