@@ -17,6 +17,17 @@ and using [Cowboy](https://github.com/ninenines/cowboy) webserver.
   docker-compose scale app=3
 ```
 
+## Docker Compose Configuration
+
+There are 3 services available:
+
+* postgres: postgres docker image that contains the postgres database that stores the football results.
+* app: HTTP api application that depends on postgres service. 
+* haproxy: haproxy docker image that is used for handling load balancing for the app service. 
+Serves the HTTP api on port 80
+
+`docker-compose scale app=3` scales the app to 3 instances.
+
 ## Seed Data
 
 Multiple results will be seeded when running:
