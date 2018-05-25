@@ -2,11 +2,11 @@ defmodule Api do
   @moduledoc """
   API endpoints definitions
 
-  ## /api/divisions_by_season
+  ## GET /api/divisions_by_season
      Retrieval of all divisions + season pairs.
      Response is encoded in JSON.
 
-  ## /api/results
+  ## GET /api/results
      Retrieval of all results for the given division and season query parameters.
 
      If Accept request header is equal to "application/octet-stream", then
