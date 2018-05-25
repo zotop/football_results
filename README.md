@@ -16,6 +16,18 @@ Elixir umbrella application containing 2 applications:
   docker-compose scale app=3
 ```
 
+## Seed Data
+
+Multiple results will be seeded when running:
+```
+  docker-compose run app mix run apps/database/priv/repo/seeds/results.exs
+```
+
+'results.exs' is responsible for parsing the football(aka soccer) results present
+in 'data.csv' and inserting them in the database.
+
+There are 2370 results present in 'data.csv'.
+
 ## Generating ExDoc documentation
 
 ```
