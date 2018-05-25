@@ -2,7 +2,7 @@
 
 Elixir umbrella application containing 2 applications:
 
-* Api: Application serving the HTTP API via [Plug](https://github.com/elixir-plug/plug),
+* Api: Application serving the HTTP API via [Plug](https://github.com/elixir-plug/plug)
 and using [Cowboy](https://github.com/ninenines/cowboy) webserver.
 * Database: Wrapper for querying the Postgres database using Ecto.
 
