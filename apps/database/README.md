@@ -1,21 +1,19 @@
 # Database
 
-**TODO: Add description**
+Application responsible for database communication, which contains:
 
-## Installation
+* Wrapper for querying the Postgres database using [Ecto](https://github.com/elixir-ecto/ecto).
+* Seed data which consists of 2370 football results present in data.csv.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `database` to your list of dependencies in `mix.exs`:
+## Ecto - Mix Tasks
 
-```elixir
-def deps do
-  [
-    {:database, "~> 0.1.0"}
-  ]
-end
-```
+* `mix ecto.create`: creates the storage for the given repository.
+* `mix ecto.create`: runs the pending migrations for the given repository.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/database](https://hexdocs.pm/database).
+## Testing
 
+Tests can be run with [espec](https://github.com/antonmi/espec)
+via the command `mix espec`.
+
+Note: Check and update accordingly `/config/test.exs`
+for your test repository settings.
