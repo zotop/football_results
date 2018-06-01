@@ -3,6 +3,7 @@ ADD . /app
 WORKDIR /app
 EXPOSE 4001
 ENV MIX_ENV=dev
+RUN mix local.rebar --force
 RUN mix local.hex --force
 RUN mix deps.get
 RUN mix compile
